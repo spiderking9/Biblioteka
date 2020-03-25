@@ -1,0 +1,8 @@
+C:\Users\Luk\source\repos\Biblioteczka\obj\Debug\netcoreapp3.1\Biblioteczka.csprojAssemblyReference.cache
+C:\Users\Luk\source\repos\Biblioteczka\obj\Debug\netcoreapp3.1\staticwebassets\Biblioteczka.StaticWebAssets.Manifest.cache
+C:\Users\Luk\source\repos\Biblioteczka\obj\Debug\netcoreapp3.1\staticwebassets\Biblioteczka.StaticWebAssets.xml
+C:\Users\Luk\source\repos\Biblioteczka\obj\Debug\netcoreapp3.1\Biblioteczka.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Luk\source\repos\Biblioteczka\obj\Debug\netcoreapp3.1\Biblioteczka.RazorAssemblyInfo.cache
+C:\Users\Luk\source\repos\Biblioteczka\obj\Debug\netcoreapp3.1\Biblioteczka.RazorAssemblyInfo.cs
+C:\Users\Luk\source\repos\Biblioteczka\obj\Debug\netcoreapp3.1\Biblioteczka.AssemblyInfoInputs.cache
+C:\Users\Luk\source\repos\Biblioteczka\obj\Debug\netcoreapp3.1\Biblioteczka.AssemblyInfo.cs

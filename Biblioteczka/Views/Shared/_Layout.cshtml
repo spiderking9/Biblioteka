@@ -1,0 +1,35 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <title>Biblioteczka</title>
+    <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+</head>
+<body>
+    @*<div class="navbar navbar-inverse bg-inverse" role="navigation">
+            <div class="row">
+                <a class="col navbar-brand" href="#">Sklep sportowy</a>
+                <a class="col navbar-brand">@Html.ActionLink("New Rental", "Index", "Admin")</a>
+                <div class="col-4 text-right">@await Component.InvokeAsync("CartSummary")</div>
+            </div>
+        </div>*@
+    <div class="row m-1 p-1 ">
+        @*<div id="categories" class="col-3">
+                @await Component.InvokeAsync("NavigationMenu")
+            </div>*@
+        <div class="col-9">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success mt-1">@TempData["message"]</div>
+            }
+
+            @RenderBody()
+        </div>
+    </div>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿@model ListaKsiazekViewModel
+    <p>
+        <a class="btn btn-secondary btn-sm" asp-action="Create">Create New</a>
+    </p>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Tytul</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Kategoria</th>
+                <th scope="col">Dostępność</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Ksiazkis)
+            {
+                @await Html.PartialAsync("KsiazkiSuma", p);
+            }
+        </tbody>
+    </table>
+
