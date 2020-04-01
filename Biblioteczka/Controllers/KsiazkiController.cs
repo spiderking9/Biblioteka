@@ -13,33 +13,39 @@ namespace Biblioteczka.Controllers
     public class KsiazkiController : Controller
     {
         private IKsiazkaRepository repository;
-        public KsiazkiController(IKsiazkaRepository repo)
-        {
-            repository = repo;
-        }
+        public KsiazkiController(IKsiazkaRepository repo) => repository = repo;
         public ViewResult Lista()
         {
-            return View(new ListaKsiazekViewModel { Ksiazkis = repository.Ksiazkis });
+            return View(new ListaKsiazekViewModel { Ksiazkis = repository.Ksiazkis.Include(c => c.Categoria) });
         }
 
         public IActionResult Create()
         {
-            return View();
+            KsiazkiCategorieViewModel ksiazkiCategorie = new KsiazkiCategorieViewModel(repository.Categorias.ToList());
+
+            return View(ksiazkiCategorie);
         }
 
         [HttpPost]
-        public ActionResult Create(Ksiazki ksiazki)
+        public ActionResult Create(KsiazkiCategorieViewModel ksiazkiCategorie)
         {
             if (ModelState.IsValid)
             {
-                repository.SaveKsiazki(ksiazki);
-                if (ksiazki != null)
+                Categoria nowaKategoria = repository.Categorias.Single(c => c.Id == ksiazkiCategorie.CategoriaId);
+
+                Ksiazki nowaKsiazka = new Ksiazki
                 {
-                    TempData["message"] = $"Dodano '{ksiazki.Tytul}'.";
-                }
+                    Tytul = ksiazkiCategorie.Tytul,
+                    Autor = ksiazkiCategorie.Autor,
+                    CzyDostepna = ksiazkiCategorie.CzyDostepna,
+                    Categoria = nowaKategoria
+                };
+
+                repository.SaveKsiazki(nowaKsiazka);
                 return RedirectToAction(nameof(Lista));
             }
-            return View(ksiazki);
+            
+            return View(ksiazkiCategorie);
         }
 
         public ViewResult Edit(int ksiazkaId) => View(repository.Ksiazkis.FirstOrDefault(ksiazka => ksiazka.KsiazkaID == ksiazkaId));

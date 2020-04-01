@@ -1,4 +1,4 @@
-﻿@model Ksiazki
+﻿@model KsiazkiCategorieViewModel
 
 <h1>Edit</h1>
 
@@ -18,9 +18,8 @@
                 <span asp-validation-for="Autor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Categoria" class="control-label"></label>
-                <input asp-for="Categoria" class="form-control" />
-                <span asp-validation-for="Categoria" class="text-danger"></span>
+                <label asp-for="CategoriaId" class="control-label"></label>
+                <select asp-for="CategoriaId" asp-items="Model.Categorias"></select>
             </div>
             <div class="form-group">
                 <label asp-for="CzyDostepna" class="control-label"></label>

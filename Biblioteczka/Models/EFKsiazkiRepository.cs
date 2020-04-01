@@ -14,15 +14,16 @@ namespace Biblioteczka.Models
             context = ctx;
         }
 
+        public IQueryable<Categoria> Categorias => context.Categorias;
         public IQueryable<Ksiazki> Ksiazkis => context.Ksiazkis;
 
         public void SaveKsiazki(Ksiazki ksiazki)
         {
-            if (ksiazki.KsiazkaID == 0)
+            if (ksiazki.KsiazkaID == 0) //Sprawdzamy czy ma id, jezeli nie ma to znaczy ze mozna dodac ksiazke
             {
                 context.Ksiazkis.Add(ksiazki);
             }
-            else
+            else //jezeli ma id to wybieramy pozycje w bazie i eytujemy wszystkie pozycje
             {
                 Ksiazki dbEntry = context.Ksiazkis.FirstOrDefault(p => p.KsiazkaID == ksiazki.KsiazkaID);
                 if (dbEntry != null)

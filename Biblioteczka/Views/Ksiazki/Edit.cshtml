@@ -20,9 +20,8 @@
                 <span asp-validation-for="Autor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Categoria" class="control-label"></label>
-                <input asp-for="Categoria" class="form-control" />
-                <span asp-validation-for="Categoria" class="text-danger"></span>
+                <label asp-for="CategoriaId" class="control-label"></label>
+                <select asp-for="CategoriaId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="CzyDostepna" class="control-label"></label>
@@ -41,5 +40,5 @@
 </div>
 
 @*@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}*@
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@

@@ -1,0 +1,15 @@
+﻿@model Categoria
+
+<tr>
+    <td scope="row">@Model.Nazwa</td>
+    <td scope="row">
+
+        <form asp-action="Delete" method="post">
+            <a asp-action="Edit" class="btn btn-sm btn-warning"
+               asp-route-categoriaId="@Model.Id">Edytuj</a>  @*asp-route-"tutaj deklarujemy zmienna ktora bedzie wysylana do controlera"*@
+            <input type="hidden" name="categoriaId" value="@Model.Id" /> @*name musi sie zgadzac z nazwa w controlerze *@
+            <button type="submit" class="btn btn-danger btn-sm">Usuń</button>
+        </form>
+
+    </td>
+</tr>

@@ -3,14 +3,16 @@ using Biblioteczka.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Biblioteczka.Migrations
 {
     [DbContext(typeof(KsiazkiContext))]
-    partial class KsiazkiContextModelSnapshot : ModelSnapshot
+    [Migration("20200331085349_AddCategoria")]
+    partial class AddCategoria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,8 +46,9 @@ namespace Biblioteczka.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CategoriaId")
-                        .HasColumnType("int");
+                    b.Property<string>("Categoria")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("CzyDostepna")
                         .HasColumnType("bit");
@@ -56,18 +59,7 @@ namespace Biblioteczka.Migrations
 
                     b.HasKey("KsiazkaID");
 
-                    b.HasIndex("CategoriaId");
-
                     b.ToTable("Ksiazkis");
-                });
-
-            modelBuilder.Entity("Biblioteczka.Models.Ksiazki", b =>
-                {
-                    b.HasOne("Biblioteczka.Models.Categoria", "Categoria")
-                        .WithMany()
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

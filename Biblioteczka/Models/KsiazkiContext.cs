@@ -12,5 +12,6 @@ namespace Biblioteczka.Models
             : base(options) { }
 
         public DbSet<Ksiazki> Ksiazkis { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
     }
 }

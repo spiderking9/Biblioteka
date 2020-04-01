@@ -28,6 +28,7 @@ namespace Biblioteczka
                 options.UseSqlServer(
                     Configuration["Data:BibliotekaKsiazki:ConnectionString"]));
             services.AddTransient<IKsiazkaRepository, EFKsiazkiRepository>();
+            services.AddTransient<ICategoriaRepository, EFCategoriaRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

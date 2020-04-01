@@ -16,7 +16,8 @@ namespace Biblioteczka.Models
         public string Autor { get; set; }
 
         [Required(ErrorMessage = "Proszę podać kategorie.")]
-        public string Categoria { get; set; }
+        public Categoria Categoria { get; set; }
+        public int CategoriaId { get; set; }
         public bool CzyDostepna { get; set; }
     }
 }

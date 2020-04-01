@@ -1,0 +1,19 @@
+﻿@model ListaCategoriiViewModel
+    <p>
+        <a class="btn btn-secondary btn-sm" asp-action="Create">Create New</a>
+    </p>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Nazwa</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Categorias)
+            {
+                @await Html.PartialAsync("CategoriaSuma", p);
+            }
+        </tbody>
+    </table>
+

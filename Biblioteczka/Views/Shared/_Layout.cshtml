@@ -17,9 +17,10 @@
             </div>
         </div>*@
     <div class="row m-1 p-1 ">
-        @*<div id="categories" class="col-3">
-                @await Component.InvokeAsync("NavigationMenu")
-            </div>*@
+        <p>
+            <a class="btn btn-secondary btn-sm" asp-controller="Categoria" asp-action="Lista">Categoria</a>
+            <a class="btn btn-secondary btn-sm" asp-controller="Ksiazki" asp-action="Lista">Ksiazki</a>
+        </p>
         <div class="col-9">
             @if (TempData["message"] != null)
             {

@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace Biblioteczka.Models
 {
-    public interface IKsiazkaRepository
+    public interface ICategoriaRepository
     {
-        IQueryable<Ksiazki> Ksiazkis { get; }
         IQueryable<Categoria> Categorias { get; }
-        void SaveKsiazki(Ksiazki ksiazki);
-        Ksiazki DeleteKsiazki(int ksiazkaID);
+        void SaveCategoria(Categoria categoria);
+        Categoria DeleteCategoria(int id);
     }
 }
